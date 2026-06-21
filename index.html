@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MiniGram</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="topbar">
+    <h1>MiniGram</h1>
+    <input type="text" placeholder="Search" />
+    <button>Login</button>
+  </header>
+
+  <section class="stories">
+    <div class="story">You</div>
+    <div class="story">Shalini</div>
+    <div class="story">Prabhat</div>
+    <div class="story">Phoenix</div>
+    <div class="story">AI</div>
+  </section>
+
+  <main class="container">
+    <section class="feed">
+
+      <div class="post">
+        <div class="post-head">
+          <div class="avatar">S</div>
+          <h3>Shalini</h3>
+        </div>
+        <img src="https://picsum.photos/600/400?random=1" alt="Post Image">
+        <div class="actions">
+          <button onclick="likePost(this)">♡ Like</button>
+          <button>💬 Comment</button>
+          <button>↗ Share</button>
+        </div>
+        <p><b>Shalini</b> Learning AI and building future 🚀</p>
+        <input type="text" placeholder="Add a comment..." />
+      </div>
+
+      <div class="post">
+        <div class="post-head">
+          <div class="avatar">P</div>
+          <h3>Phoenix</h3>
+        </div>
+        <img src="https://picsum.photos/600/400?random=2" alt="Post Image">
+        <div class="actions">
+          <button onclick="likePost(this)">♡ Like</button>
+          <button>💬 Comment</button>
+          <button>↗ Share</button>
+        </div>
+        <p><b>Phoenix</b> Rise again with power and purpose 🔥</p>
+        <input type="text" placeholder="Add a comment..." />
+      </div>
+
+    </section>
+
+    <aside class="profile">
+      <div class="big-avatar">M</div>
+      <h2>Mohammad Shahzad</h2>
+      <p>@mini_creator</p>
+      <button>Follow</button>
+    </aside>
+  </main>
+
+  <nav class="bottom-nav">
+    <span>🏠</span>
+    <span>🔍</span>
+    <span>➕</span>
+    <span>♡</span>
+    <span>👤</span>
+  </nav>
+
+  <script src="script.js"></script>
+</body>
+      </html>
