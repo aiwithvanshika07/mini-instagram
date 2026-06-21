@@ -1,0 +1,204 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #0f0f14;
+  color: white;
+}
+
+.topbar {
+  height: 70px;
+  background: #16161f;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  border-bottom: 1px solid #333;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.topbar h1 {
+  background: linear-gradient(45deg, #ff006a, #ffb300);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.topbar input {
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  width: 250px;
+}
+
+.topbar button,
+.profile button {
+  padding: 10px 22px;
+  border: none;
+  border-radius: 20px;
+  background: linear-gradient(45deg, #ff006a, #ffb300);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.stories {
+  display: flex;
+  gap: 20px;
+  padding: 25px 40px;
+  overflow-x: auto;
+}
+
+.story {
+  min-width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #ff006a, #ffb300);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 5px;
+}
+
+.container {
+  display: flex;
+  gap: 30px;
+  max-width: 1100px;
+  margin: auto;
+  padding: 20px;
+}
+
+.feed {
+  flex: 2;
+}
+
+.post {
+  background: #181824;
+  border-radius: 18px;
+  margin-bottom: 30px;
+  overflow: hidden;
+  border: 1px solid #2c2c3a;
+}
+
+.post-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px;
+}
+
+.avatar,
+.big-avatar {
+  background: linear-gradient(45deg, #ff006a, #ffb300);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.avatar {
+  width: 45px;
+  height: 45px;
+}
+
+.big-avatar {
+  width: 100px;
+  height: 100px;
+  font-size: 40px;
+  margin: auto;
+}
+
+.post img {
+  width: 100%;
+  display: block;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  padding: 15px;
+}
+
+.actions button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.post p {
+  padding: 0 15px 15px;
+}
+
+.post input {
+  width: 100%;
+  padding: 15px;
+  background: #101018;
+  border: none;
+  color: white;
+  outline: none;
+}
+
+.profile {
+  flex: 1;
+  background: #181824;
+  border-radius: 18px;
+  padding: 25px;
+  height: fit-content;
+  text-align: center;
+  border: 1px solid #2c2c3a;
+}
+
+.profile h2 {
+  margin-top: 15px;
+}
+
+.profile p {
+  color: #aaa;
+  margin: 8px 0 18px;
+}
+
+.bottom-nav {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .topbar {
+    padding: 0 15px;
+  }
+
+  .topbar input {
+    display: none;
+  }
+
+  .container {
+    display: block;
+    padding-bottom: 80px;
+  }
+
+  .profile {
+    display: none;
+  }
+
+  .bottom-nav {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #16161f;
+    justify-content: space-around;
+    padding: 15px 0;
+    border-top: 1px solid #333;
+    font-size: 22px;
+  }
+  }
