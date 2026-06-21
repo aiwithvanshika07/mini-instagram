@@ -3,76 +3,120 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MiniGram</title>
+  <title>MiniGram - Social App</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <header class="topbar">
-    <h1>MiniGram</h1>
-    <input type="text" placeholder="Search" />
-    <button>Login</button>
-  </header>
+<header class="topbar">
+  <h1>MiniGram</h1>
+  <input type="text" id="searchInput" placeholder="Search users or posts..." onkeyup="searchPosts()" />
+  <button onclick="openPage('profilePage')">My Profile</button>
+</header>
 
-  <section class="stories">
-    <div class="story">You</div>
-    <div class="story">Shalini</div>
-    <div class="story">Prabhat</div>
-    <div class="story">Phoenix</div>
-    <div class="story">AI</div>
-  </section>
+<nav class="tabs">
+  <button onclick="openPage('homePage')">🏠 Home</button>
+  <button onclick="openPage('reelsPage')">🎬 Reels</button>
+  <button onclick="openPage('notifyPage')">🔔 Notifications</button>
+  <button onclick="openPage('chatPage')">💬 Chat</button>
+  <button onclick="openPage('loginPage')">🔐 Login</button>
+</nav>
+
+<section id="loginPage" class="page">
+  <div class="auth-card">
+    <h2>Login / Sign Up</h2>
+    <input type="text" id="username" placeholder="Enter username" />
+    <input type="password" id="password" placeholder="Enter password" />
+    <button onclick="loginUser()">Login / Sign Up</button>
+    <p id="loginStatus">Create account or login instantly.</p>
+  </div>
+</section>
+
+<section id="homePage" class="page active">
+
+  <div class="stories" id="storiesBox">
+    <div class="story add-story">
+      <input type="file" id="storyUpload" accept="image/*" onchange="uploadStory(event)" />
+      <label for="storyUpload">+ Story</label>
+    </div>
+  </div>
+
+  <div class="create-post">
+    <h2>Create New Post</h2>
+    <input type="text" id="postText" placeholder="Write caption..." />
+    <input type="file" id="postImage" accept="image/*" />
+    <button onclick="addPost()">Post Now</button>
+  </div>
 
   <main class="container">
-    <section class="feed">
+    <section class="feed" id="feed"></section>
 
-      <div class="post">
-        <div class="post-head">
-          <div class="avatar">S</div>
-          <h3>Shalini</h3>
-        </div>
-        <img src="https://picsum.photos/600/400?random=1" alt="Post Image">
-        <div class="actions">
-          <button onclick="likePost(this)">♡ Like</button>
-          <button>💬 Comment</button>
-          <button>↗ Share</button>
-        </div>
-        <p><b>Shalini</b> Learning AI and building future 🚀</p>
-        <input type="text" placeholder="Add a comment..." />
-      </div>
-
-      <div class="post">
-        <div class="post-head">
-          <div class="avatar">P</div>
-          <h3>Phoenix</h3>
-        </div>
-        <img src="https://picsum.photos/600/400?random=2" alt="Post Image">
-        <div class="actions">
-          <button onclick="likePost(this)">♡ Like</button>
-          <button>💬 Comment</button>
-          <button>↗ Share</button>
-        </div>
-        <p><b>Phoenix</b> Rise again with power and purpose 🔥</p>
-        <input type="text" placeholder="Add a comment..." />
-      </div>
-
-    </section>
-
-    <aside class="profile">
+    <aside class="profile-card">
       <div class="big-avatar">M</div>
-      <h2>Mohammad Shahzad</h2>
-      <p>@mini_creator</p>
-      <button>Follow</button>
+      <h2 id="profileName">Guest User</h2>
+      <p>@minigram_user</p>
+
+      <div class="stats">
+        <div><h3 id="postCount">0</h3><p>Posts</p></div>
+        <div><h3>520</h3><p>Followers</p></div>
+        <div><h3>180</h3><p>Following</p></div>
+      </div>
+
+      <button onclick="openPage('profilePage')">View Profile</button>
     </aside>
   </main>
+</section>
 
-  <nav class="bottom-nav">
-    <span>🏠</span>
-    <span>🔍</span>
-    <span>➕</span>
-    <span>♡</span>
-    <span>👤</span>
-  </nav>
+<section id="profilePage" class="page">
+  <div class="profile-main">
+    <div class="big-avatar">M</div>
+    <h2 id="profilePageName">Guest User</h2>
+    <p>Digital Creator | MiniGram User</p>
 
-  <script src="script.js"></script>
+    <div class="stats">
+      <div><h3 id="profilePostCount">0</h3><p>Posts</p></div>
+      <div><h3>520</h3><p>Followers</p></div>
+      <div><h3>180</h3><p>Following</p></div>
+    </div>
+
+    <h3>My Posts</h3>
+    <div id="profilePosts" class="profile-grid"></div>
+  </div>
+</section>
+
+<section id="reelsPage" class="page">
+  <h2 class="page-title">Reels</h2>
+  <div class="reels">
+    <div class="reel">🔥 Rise Again Reel</div>
+    <div class="reel">🚀 AI Future Reel</div>
+    <div class="reel">📸 MiniGram Vibes</div>
+  </div>
+</section>
+
+<section id="notifyPage" class="page">
+  <h2 class="page-title">Notifications</h2>
+  <div class="notification">❤️ Someone liked your post.</div>
+  <div class="notification">💬 New comment on your photo.</div>
+  <div class="notification">👤 Shalini started following you.</div>
+</section>
+
+<section id="chatPage" class="page">
+  <div class="chat-box">
+    <h2>Messages</h2>
+    <div id="messages"></div>
+    <input type="text" id="chatInput" placeholder="Type message..." />
+    <button onclick="sendMessage()">Send</button>
+  </div>
+</section>
+
+<nav class="bottom-nav">
+  <span onclick="openPage('homePage')">🏠</span>
+  <span onclick="openPage('reelsPage')">🎬</span>
+  <span onclick="openPage('notifyPage')">🔔</span>
+  <span onclick="openPage('chatPage')">💬</span>
+  <span onclick="openPage('profilePage')">👤</span>
+</nav>
+
+<script src="script.js"></script>
 </body>
-      </html>
+  </html>
